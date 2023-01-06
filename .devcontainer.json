@@ -1,0 +1,18 @@
+{
+    "name": "noetic",
+    "dockerComposeFile": "./compose.yaml",
+    "service": "noetic_intel",
+    "workspaceFolder": "/home/valentin/catkin_ws",
+    "extensions": [
+        "ms-iot.vscode-ros"
+    ],
+    "shutdownAction": "stopCompose"
+}
+// MUST install: sudo apt install docker-compose
+// {
+//   "name": "[Optional] Your project name here",
+//   "dockerComposeFile": "../docker-compose.yml",
+//   "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
+//   "workspaceFolder": "/default/workspace/path/in/container/to/open",
+//   "shutdownAction": "stopCompose"
+// }
