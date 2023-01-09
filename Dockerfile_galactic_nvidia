@@ -18,15 +18,11 @@ RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o 
 
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
-RUN apt update 
-RUN apt upgrade 
+RUN apt update && apt upgrade -y
 
 # Install ROS Galactic
 RUN apt install -y --no-install-recommends ros-galactic-desktop
 RUN apt install -y --no-install-recommends ros-dev-tools
 RUN echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
-
 RUN apt install -y --no-install-recommends gdb
-
-ENTRYPOINT [ "./ros_entrypoint.sh" ]
-CMD [ "bash" ]
+RUN apt install -y --no-install-recommends build-essential
