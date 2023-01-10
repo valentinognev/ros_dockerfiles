@@ -21,8 +21,28 @@ RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/r
 RUN apt update && apt upgrade -y
 
 # Install ROS Galactic
-RUN apt install -y --no-install-recommends ros-galactic-desktop
+RUN apt install -y --no-install-recommends ros-foxy-desktop
 RUN apt install -y --no-install-recommends ros-dev-tools
-RUN echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
-RUN apt install -y --no-install-recommends gdb git
+RUN apt install -y --no-install-recommends gdb
 RUN apt install -y --no-install-recommends build-essential
+
+SHELL [ "/bin/bash" , "-c" ]
+RUN apt-get update
+RUN apt-get install -y git && apt-get install -y python3-pip
+RUN source /opt/ros/foxy/setup.bash 
+
+RUN  apt install -y --no-install-recommends python3-colcon-common-extensions \
+    && apt-get install -y --no-install-recommends ros-foxy-joint-state-publisher-gui \
+    && apt-get install -y --no-install-recommends ros-foxy-gazebo-plugins
+
+RUN source /opt/ros/foxy/setup.bash \
+ && apt install -y --no-install-recommends ros-foxy-joint-state-publisher \
+ && apt install -y --no-install-recommends ros-foxy-gazebo-ros 
+
+RUN pip install opencv-contrib-python==4.6.0.66
+RUN pip install pygame
+RUN apt install -y --no-install-recommends psmisc 
+RUN apt install -y --no-install-recommends git
+
+RUN echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
+RUN echo "source /home/valentin/path_planning_ws/install/setup.bash" >> ~/.bashrc

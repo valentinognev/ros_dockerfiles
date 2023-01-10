@@ -1,0 +1,10 @@
+FROM osrf/ros:kinetic-desktop-full
+ 
+
+ 
+# Install ROS Melodic
+
+RUN apt update && apt install -y --no-install-recommends gdb git
+RUN apt install -y --no-install-recommends ros-kinetic-joint-state-publisher-gui
+RUN echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+RUN echo "source /home/valento/catkin_ws/devel/setup.bash" >> ~/.bashrc
