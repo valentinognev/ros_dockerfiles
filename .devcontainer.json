@@ -1,34 +1,43 @@
-{
-    "name": "noetic",
-    "dockerComposeFile": "./compose.yaml",
-    "service": "kinetic_intel",
-    "workspaceFolder": "/home/valento/catkin_ws",
-    "extensions": [
-        "ms-iot.vscode-ros"
-    ],
-    "shutdownAction": "stopCompose"
-}
-// {
-//     "name": "galactic",
-//     "dockerComposeFile": "./compose.yaml",
-//     "service": "galactic_nvidia",
-//     "workspaceFolder": "/home/valentin/ros2_ws",
-//     "extensions": [
-//         "ms-iot.vscode-ros"
-//     ],
-//     "shutdownAction": "stopCompose"
-// }
-
 // {
 //     "name": "noetic",
 //     "dockerComposeFile": "./compose.yaml",
-//     "service": "noetic_nvidia",
+//     "service": "noetic_intel",
 //     "workspaceFolder": "/home/valento/catkin_ws",
 //     "extensions": [
 //         "ms-iot.vscode-ros"
 //     ],
 //     "shutdownAction": "stopCompose"
 // }
+// {
+//     "name": "galactic",
+//     "dockerComposeFile": "./compose.yaml",
+//     "service": "galactic_intel",
+//     "workspaceFolder": "/home/valento/ros2_ws",
+//     "extensions": [
+//         "ms-iot.vscode-ros"
+//     ],
+//     "shutdownAction": "stopCompose"
+// }
+// {
+//     "name": "foxy",
+//     "dockerComposeFile": "./compose.yaml",
+//     "service": "galactic_intel",
+//     "workspaceFolder": "/home/valento/ros2_ws",
+//     "extensions": [
+//         "ms-iot.vscode-ros"
+//     ],
+//     "shutdownAction": "stopCompose"
+// }
+{
+    "name": "noetic",
+    "dockerComposeFile": "./compose.yaml",
+    "service": "noetic_intel",
+    "workspaceFolder": "/home/valento/catkin_ws",
+    "extensions": [
+        "ms-iot.vscode-ros"
+    ],
+    "shutdownAction": "stopCompose"
+}
 
 // MUST install: sudo apt install docker-compose
 // {

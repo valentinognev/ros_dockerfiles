@@ -4,6 +4,13 @@ FROM osrf/ros:noetic-desktop-full
  
 # Install ROS Noetic
 #RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-focal.list'
-RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+
 RUN apt update && apt install -y --no-install-recommends gdb git
+RUN apt install -y --no-install-recommends python-is-python3
+RUN apt install -y --no-install-recommends ros-noetic-rviz ros-noetic-rosbash ros-noetic-rqt-tf-tree ros-noetic-tf2-tools
+RUN sed -i 's/m = r.search(vstr)/m = r.search(vstr.decode("'"utf-8"'"))/' /opt/ros/noetic/lib/tf/view_frames 
+RUN apt install -y --no-install-recommends python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool python3-pip python3-catkin-tools
+RUN python -m pip install pyquaternion
+
+RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 RUN echo "source /home/valento/catkin_ws/devel/setup.bash" >> ~/.bashrc

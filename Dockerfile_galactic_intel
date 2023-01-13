@@ -2,7 +2,26 @@ FROM osrf/ros:galactic-desktop
  
 
  
-# Install ROS Noetic
-#RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-focal.list'
+SHELL [ "/bin/bash" , "-c" ]
+RUN apt update
+RUN apt upgrade -y
+RUN apt install -y git 
+RUN apt install -y python3-wheel 
+RUN apt install -y python3-pip
+RUN source /opt/ros/galactic/setup.bash 
+
+RUN  apt install -y python3-colcon-common-extensions \
+    && apt install -y ros-galactic-joint-state-publisher-gui \
+    && apt install -y ros-galactic-gazebo-plugins
+
+RUN source /opt/ros/galactic/setup.bash \
+ && apt install -y ros-galactic-joint-state-publisher \
+ && apt install -y ros-galactic-gazebo-ros 
+
+RUN pip install opencv-contrib-python==4.6.0.66
+RUN pip install pygame
+RUN apt install -y psmisc
+RUN apt install -y ros-galactic-joint-state-publisher-gui ros-galactic-xacro
+
 RUN echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
-RUN apt update && apt install -y --no-install-recommends gdb git
+# RUN echo "source /home/valentin/path_planning_ws/install/setup.bash" >> ~/.bashrc

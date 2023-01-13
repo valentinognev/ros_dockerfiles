@@ -2,21 +2,25 @@ FROM osrf/ros:foxy-desktop
 
 
 SHELL [ "/bin/bash" , "-c" ]
-RUN apt-get update
-RUN apt-get install -y git && apt-get install -y python3-pip
+RUN apt update
+RUN apt upgrade -y
+RUN apt install -y git 
+RUN apt install -y python3-wheel 
+RUN apt install -y python3-pip
 RUN source /opt/ros/foxy/setup.bash 
 
 RUN  apt install -y python3-colcon-common-extensions \
-    && apt-get install -y ros-foxy-joint-state-publisher-gui \
-    && apt-get install -y ros-foxy-gazebo-plugins
+    && apt install -y ros-foxy-joint-state-publisher-gui \
+    && apt install -y ros-foxy-gazebo-plugins
 
 RUN source /opt/ros/foxy/setup.bash \
- && apt-get install -y ros-foxy-joint-state-publisher \
- && apt-get install -y ros-foxy-gazebo-ros 
+ && apt install -y ros-foxy-joint-state-publisher \
+ && apt install -y ros-foxy-gazebo-ros 
 
 RUN pip install opencv-contrib-python==4.6.0.66
 RUN pip install pygame
-RUN apt install psmisc
+RUN apt install -y psmisc
+RUN apt install -y ros-foxy-joint-state-publisher-gui ros-foxy-xacro
 
 RUN echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
 # RUN echo "source /home/valentin/path_planning_ws/install/setup.bash" >> ~/.bashrc
