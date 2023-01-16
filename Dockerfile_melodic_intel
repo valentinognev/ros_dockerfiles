@@ -1,10 +1,11 @@
 FROM osrf/ros:melodic-desktop-full
  
+RUN apt update
+RUN apt upgrade -y
 
- 
 # Install ROS Melodic
 
-RUN apt update && apt install -y --no-install-recommends gdb git
-RUN apt install -y --no-install-recommends ros-melodic-joint-state-publisher-gui
+RUN apt update && apt install -y gdb git
+RUN apt install -y ros-melodic-joint-state-publisher-gui
 RUN echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 RUN echo "source /home/valento/catkin_ws/devel/setup.bash" >> ~/.bashrc

@@ -3,6 +3,7 @@ FROM ubuntu:20.04
 # Minimal setup
 RUN apt update 
 RUN apt upgrade -y
+
 RUN apt install -y locales lsb-release
 ARG DEBIAN_FRONTEND=noninteractive
 RUN dpkg-reconfigure locales
@@ -20,16 +21,16 @@ RUN rosdep init \
  && rosdep fix-permissions \
  && rosdep update
 
-RUN apt update && apt install -y --no-install-recommends gdb git
-RUN apt update && apt install -y --no-install-recommends python-is-python3
-RUN apt install -y --no-install-recommends build-essential
+RUN apt update && apt install -y gdb git
+RUN apt update && apt install -y python-is-python3
+RUN apt install -y build-essential
 RUN sed -i 's/m = r.search(vstr)/m = r.search(vstr.decode("'"utf-8"'"))/' /opt/ros/noetic/lib/tf/view_frames 
-RUN apt install -y --no-install-recommends ros-noetic-rviz ros-noetic-rosbash ros-noetic-rqt-tf-tree ros-noetic-tf2-tools
+RUN apt install -y ros-noetic-rviz ros-noetic-rosbash ros-noetic-rqt-tf-tree ros-noetic-tf2-tools
 RUN sed -i 's/m = r.search(vstr)/m = r.search(vstr.decode("'"utf-8"'"))/' /opt/ros/noetic/lib/tf/view_frames
-RUN apt install -y --no-install-recommends python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool python3-pip
-RUN apt install -y --no-install-recommends python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool python3-pip python3-catkin-tools
+RUN apt install -y python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool python3-pip
+RUN apt install -y python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool python3-pip python3-catkin-tools
 RUN python -m pip install pyquaternion
-RUN apt install -y --no-install-recommends python-is-python3
+RUN apt install -y python-is-python3
 
  
 RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc

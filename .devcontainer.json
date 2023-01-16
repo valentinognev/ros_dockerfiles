@@ -2,7 +2,7 @@
 //     "name": "noetic",
 //     "dockerComposeFile": "./compose.yaml",
 //     "service": "noetic_intel",
-//     "workspaceFolder": "/home/valento/catkin_ws",
+//     "workspaceFolder": "/home/valentin/catkin_ws",
 //     "extensions": [
 //         "ms-iot.vscode-ros"
 //     ],
@@ -12,7 +12,7 @@
 //     "name": "galactic",
 //     "dockerComposeFile": "./compose.yaml",
 //     "service": "galactic_intel",
-//     "workspaceFolder": "/home/valento/ros2_ws",
+//     "workspaceFolder": "/home/valentin/ros2_ws",
 //     "extensions": [
 //         "ms-iot.vscode-ros"
 //     ],
@@ -22,7 +22,7 @@
 //     "name": "foxy",
 //     "dockerComposeFile": "./compose.yaml",
 //     "service": "galactic_intel",
-//     "workspaceFolder": "/home/valento/ros2_ws",
+//     "workspaceFolder": "/home/valentin/ros2_ws",
 //     "extensions": [
 //         "ms-iot.vscode-ros"
 //     ],
@@ -32,7 +32,7 @@
     "name": "noetic",
     "dockerComposeFile": "./compose.yaml",
     "service": "noetic_intel",
-    "workspaceFolder": "/home/valento/catkin_ws",
+    "workspaceFolder": "/home/valentin/catkin_ws",
     "extensions": [
         "ms-iot.vscode-ros"
     ],

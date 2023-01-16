@@ -3,78 +3,142 @@ version: '3.4'
 ## for making graphics work, run:   xhost local:root
 ##############################################################################################################
 services:
-#   galactic_nvidia:
-#     image: ros_galactic_nvidia
-#     network_mode: "host" 
-#     privileged: true
-#     volumes:
-#       - /home/valento/ros2_ws:/home/valento/ros2_ws                  # homeDir:containerDir   
-#       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-#       - /home/valento/.Xauthority:/home/valento/.Xauthority
-#       - /home/valento/dockerfiles
-#     devices:
-#       - /dev:/dev
-#     environment:
-#       - CC=/usr/bin/cc
-#       - CXX=/usr/bin/c++
-#       - DISPLAY=:1                      # result of:  echo $DISPLAY 
-#       - QT_X11_NO_MITSHM=1
-#       - XAUTHORITY=/home/valento/.Xauthority
-#       - DOCKER_USER_NAME=valento       # $(id -un)
-#       - DOCKER_USER_ID=1000             # $(id -u)
-#       - DOCKER_USER_GROUP_NAME=valento # $(id -gn)
-#       - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
-#       - ROS_IP=127.0.0.1 
-#       - NVIDIA_DRIVER_CAPABILITIES=all
-#     build:
-#       context: .
-#       dockerfile: ./Dockerfile_galactic_nvidia
-#     cap_add:
-#       - SYS_PTRACE
-#     security_opt:
-#       - seccomp:unconfined   
-#     command: /bin/sh -c "while sleep 1000; do :; done"     
+  galactic_nvidia:
+    image: ros_galactic_nvidia
+    network_mode: "host" 
+    privileged: true
+    volumes:
+      - /home/valentin/ros2_ws:/home/valentin/ros2_ws                  # homeDir:containerDir   
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /home/valentin/.Xauthority:/home/valentin/.Xauthority
+      - /home/valentin/dockerfiles
+    devices:
+      - /dev:/dev
+    environment:
+      - CC=/usr/bin/cc
+      - CXX=/usr/bin/c++
+      - DISPLAY=:1                      # result of:  echo $DISPLAY 
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/home/valentin/.Xauthority
+      - DOCKER_USER_NAME=valentin       # $(id -un)
+      - DOCKER_USER_ID=1000             # $(id -u)
+      - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
+      - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
+      - ROS_IP=127.0.0.1 
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    build:
+      context: .
+      dockerfile: ./Dockerfile_galactic_nvidia
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined   
+    command: /bin/sh -c "while sleep 1000; do :; done"     
 ##############################################################################################################
-  # noetic_nvidia:
-  #   image: ros_noetic_nvidia
-  #   network_mode: "host" 
-  #   privileged: true
-  #   volumes:
-  #     - /home/valento/catkin_ws:/home/valento/catkin_ws               # homeDir:containerDir
-  #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
-  #     - /home/valento/.Xauthority:/home/valento/.Xauthority
-  #     - /home/valento/dockerfiles
-  #   devices:
-  #     - /dev:/dev
-  #   environment:
-  #     - CC=/usr/bin/cc
-  #     - CXX=/usr/bin/c++
-  #     - DISPLAY=:1                      # result of:  echo $DISPLAY 
-  #     - QT_X11_NO_MITSHM=1
-  #     - XAUTHORITY=/home/valento/.Xauthority
-  #     - DOCKER_USER_NAME=valento       # $(id -un)
-  #     - DOCKER_USER_ID=1000             # $(id -u)
-  #     - DOCKER_USER_GROUP_NAME=valento # $(id -gn)
-  #     - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
-  #     - ROS_IP=127.0.0.1 
-  #     - NVIDIA_DRIVER_CAPABILITIES=all
-  #   build:
-  #     context: .
-  #     dockerfile: ./Dockerfile_noetic_nvidia
-  #   cap_add:
-  #     - SYS_PTRACE
-  #   security_opt:
-  #     - seccomp:unconfined   
-  #   command: /bin/sh -c "while sleep 1000; do :; done"  
+  foxy_nvidia:
+    image: ros_foxy_nvidia
+    network_mode: "host" 
+    privileged: true
+    volumes:
+      - /home/valentin/ros2_ws:/home/valentin/ros2_ws                  # homeDir:containerDir   
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /home/valentin/.Xauthority:/home/valentin/.Xauthority
+      - /home/valentin/dockerfiles
+    devices:
+      - /dev:/dev
+    environment:
+      - CC=/usr/bin/cc
+      - CXX=/usr/bin/c++
+      - DISPLAY=:1                      # result of:  echo $DISPLAY 
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/home/valentin/.Xauthority
+      - DOCKER_USER_NAME=valentin       # $(id -un)
+      - DOCKER_USER_ID=1000             # $(id -u)
+      - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
+      - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
+      - ROS_IP=127.0.0.1 
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    build:
+      context: .
+      dockerfile: ./Dockerfile_galactic_nvidia
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined   
+    command: /bin/sh -c "while sleep 1000; do :; done"     
+##############################################################################################################
+  noetic_nvidia:
+    image: ros_noetic_nvidia
+    network_mode: "host" 
+    privileged: true
+    volumes:
+      - /home/valentin/catkin_ws:/home/valentin/catkin_ws               # homeDir:containerDir
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /home/valentin/.Xauthority:/home/valentin/.Xauthority
+      - /home/valentin/dockerfiles
+    devices:
+      - /dev:/dev
+    environment:
+      - CC=/usr/bin/cc
+      - CXX=/usr/bin/c++
+      - DISPLAY=:1                      # result of:  echo $DISPLAY 
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/home/valentin/.Xauthority
+      - DOCKER_USER_NAME=valentin       # $(id -un)
+      - DOCKER_USER_ID=1000             # $(id -u)
+      - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
+      - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
+      - ROS_IP=127.0.0.1 
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    build:
+      context: .
+      dockerfile: ./Dockerfile_noetic_nvidia
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined   
+    command: /bin/sh -c "while sleep 1000; do :; done"  
+##############################################################################################################
+  melodic_nvidia:
+    image: ros_melodic_nvidia
+    network_mode: "host" 
+    privileged: true
+    volumes:
+      - /home/valentin/catkin_ws:/home/valentin/catkin_ws               # homeDir:containerDir
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /home/valentin/.Xauthority:/home/valentin/.Xauthority
+      - /home/valentin/dockerfiles
+    devices:
+      - /dev:/dev
+    environment:
+      - CC=/usr/bin/cc
+      - CXX=/usr/bin/c++
+      - DISPLAY=:1                      # result of:  echo $DISPLAY 
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/home/valentin/.Xauthority
+      - DOCKER_USER_NAME=valentin       # $(id -un)
+      - DOCKER_USER_ID=1000             # $(id -u)
+      - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
+      - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
+      - ROS_IP=127.0.0.1 
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    build:
+      context: .
+      dockerfile: ./Dockerfile_melodic_nvidia
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined   
+    command: /bin/sh -c "while sleep 1000; do :; done"  
 ##############################################################################################################
   # galactic_intel:
   #   image: ros_galactic_intel
   #   network_mode: "host" 
   #   privileged: true
   #   volumes:
-  #     - /home/valento/ros2_ws:/home/valento/ros2_ws                    # homeDir:containerDir
+  #     - /home/valentin/ros2_ws:/home/valentin/ros2_ws                    # homeDir:containerDir
   #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
-  #     - /home/valento/.Xauthority:/home/valento/.Xauthority
+  #     - /home/valentin/.Xauthority:/home/valentin/.Xauthority
   #   devices:
   #     - "/dev:/dev"
   #   environment:
@@ -82,10 +146,10 @@ services:
   #     - CXX=/usr/bin/c++
   #     - DISPLAY=:0
   #     - QT_X11_NO_MITSHM=1
-  #     - XAUTHORITY=/home/valento/.Xauthority
-  #     - DOCKER_USER_NAME=valento       # $(id -un)
+  #     - XAUTHORITY=/home/valentin/.Xauthority
+  #     - DOCKER_USER_NAME=valentin       # $(id -un)
   #     - DOCKER_USER_ID=1000             # $(id -u)
-  #     - DOCKER_USER_GROUP_NAME=valento # $(id -gn)
+  #     - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
   #     - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
   #     - ROS_IP=127.0.0.1 
   #   build:
@@ -105,9 +169,9 @@ services:
     network_mode: "host" 
     privileged: true
     volumes:
-      - /home/valento/catkin_ws:/home/valento/catkin_ws                     # homeDir:containerDir
+      - /home/valentin/catkin_ws:/home/valentin/catkin_ws                     # homeDir:containerDir
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - /home/valento/.Xauthority:/home/valento/.Xauthority
+      - /home/valentin/.Xauthority:/home/valentin/.Xauthority
     devices:
       - "/dev:/dev"
     environment:
@@ -115,10 +179,10 @@ services:
       - CXX=/usr/bin/c++
       - DISPLAY=:0
       - QT_X11_NO_MITSHM=1
-      - XAUTHORITY=/home/valento/.Xauthority
-      - DOCKER_USER_NAME=valento       # $(id -un)
+      - XAUTHORITY=/home/valentin/.Xauthority
+      - DOCKER_USER_NAME=valentin       # $(id -un)
       - DOCKER_USER_ID=1000             # $(id -u)
-      - DOCKER_USER_GROUP_NAME=valento # $(id -gn)
+      - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
       - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
       - ROS_IP=127.0.0.1 
     build:
@@ -138,9 +202,9 @@ services:
 #     network_mode: "host" 
 #     privileged: true
 #     volumes:
-#       - /home/valento/catkin_ws:/home/valento/catkin_ws                     # homeDir:containerDir
+#       - /home/valentin/catkin_ws:/home/valentin/catkin_ws                     # homeDir:containerDir
 #       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-#       - /home/valento/.Xauthority:/home/valento/.Xauthority
+#       - /home/valentin/.Xauthority:/home/valentin/.Xauthority
 #     devices:
 #       - "/dev:/dev"
 #     environment:
@@ -148,10 +212,10 @@ services:
 #       - CXX=/usr/bin/c++
 #       - DISPLAY=:0
 #       - QT_X11_NO_MITSHM=1
-#       - XAUTHORITY=/home/valento/.Xauthority
-#       - DOCKER_USER_NAME=valento       # $(id -un)
+#       - XAUTHORITY=/home/valentin/.Xauthority
+#       - DOCKER_USER_NAME=valentin       # $(id -un)
 #       - DOCKER_USER_ID=1000             # $(id -u)
-#       - DOCKER_USER_GROUP_NAME=valento # $(id -gn)
+#       - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
 #       - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
 #       - ROS_IP=127.0.0.1 
 #     build:
@@ -171,9 +235,9 @@ services:
   #   network_mode: "host" 
   #   privileged: true
   #   volumes:
-  #     - /home/valento/catkin_ws:/home/valento/catkin_ws                     # homeDir:containerDir
+  #     - /home/valentin/catkin_ws:/home/valentin/catkin_ws                     # homeDir:containerDir
   #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
-  #     - /home/valento/.Xauthority:/home/valento/.Xauthority
+  #     - /home/valentin/.Xauthority:/home/valentin/.Xauthority
   #   devices:
   #     - "/dev:/dev"
   #   environment:
@@ -181,10 +245,10 @@ services:
   #     - CXX=/usr/bin/c++
   #     - DISPLAY=:0
   #     - QT_X11_NO_MITSHM=1
-  #     - XAUTHORITY=/home/valento/.Xauthority
-  #     - DOCKER_USER_NAME=valento       # $(id -un)
+  #     - XAUTHORITY=/home/valentin/.Xauthority
+  #     - DOCKER_USER_NAME=valentin       # $(id -un)
   #     - DOCKER_USER_ID=1000             # $(id -u)
-  #     - DOCKER_USER_GROUP_NAME=valento # $(id -gn)
+  #     - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
   #     - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
   #     - ROS_IP=127.0.0.1 
   #   build:
@@ -204,9 +268,9 @@ services:
   #   network_mode: "host" 
   #   privileged: true
   #   volumes:
-  #     - /home/valento/ros2_ws:/home/valento/ros2_ws                    # homeDir:containerDir
+  #     - /home/valentin/ros2_ws:/home/valentin/ros2_ws                    # homeDir:containerDir
   #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
-  #     - /home/valento/.Xauthority:/home/valento/.Xauthority
+  #     - /home/valentin/.Xauthority:/home/valentin/.Xauthority
   #   devices:
   #     - "/dev:/dev"
   #   environment:
@@ -214,10 +278,10 @@ services:
   #     - CXX=/usr/bin/c++
   #     - DISPLAY=:0
   #     - QT_X11_NO_MITSHM=1
-  #     - XAUTHORITY=/home/valento/.Xauthority
-  #     - DOCKER_USER_NAME=valento       # $(id -un)
+  #     - XAUTHORITY=/home/valentin/.Xauthority
+  #     - DOCKER_USER_NAME=valentin       # $(id -un)
   #     - DOCKER_USER_ID=1000             # $(id -u)
-  #     - DOCKER_USER_GROUP_NAME=valento # $(id -gn)
+  #     - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
   #     - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
   #     - ROS_IP=127.0.0.1 #      config : intel_env
   #   build:
@@ -236,7 +300,7 @@ services:
 # volumes:
 #   common_volumes:
 #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
-#     - /home/valento/.Xauthority:/home/valento/.Xauthority
+#     - /home/valentin/.Xauthority:/home/valentin/.Xauthority
 
 # configs:
 #   intel_env:
@@ -245,10 +309,10 @@ services:
 #       - CXX=/usr/bin/c++
 #       - DISPLAY=:0
 #       - QT_X11_NO_MITSHM=1
-#       - XAUTHORITY=/home/valento/.Xauthority
-#       - DOCKER_USER_NAME=valento       # $(id -un)
+#       - XAUTHORITY=/home/valentin/.Xauthority
+#       - DOCKER_USER_NAME=valentin       # $(id -un)
 #       - DOCKER_USER_ID=1000             # $(id -u)
-#       - DOCKER_USER_GROUP_NAME=valento # $(id -gn)
+#       - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
 #       - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
 #       - ROS_IP=127.0.0.1 
 #   nvidia_env:
@@ -257,10 +321,10 @@ services:
 #       - CXX=/usr/bin/c++
 #       - DISPLAY=:1                      # result of:  echo $DISPLAY 
 #       - QT_X11_NO_MITSHM=1
-#       - XAUTHORITY=/home/valento/.Xauthority
-#       - DOCKER_USER_NAME=valento       # $(id -un)
+#       - XAUTHORITY=/home/valentin/.Xauthority
+#       - DOCKER_USER_NAME=valentin       # $(id -un)
 #       - DOCKER_USER_ID=1000             # $(id -u)
-#       - DOCKER_USER_GROUP_NAME=valento # $(id -gn)
+#       - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
 #       - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
 #       - ROS_IP=127.0.0.1 
 #       - NVIDIA_DRIVER_CAPABILITIES=all

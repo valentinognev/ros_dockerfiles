@@ -4,6 +4,7 @@ FROM osrf/ros:foxy-desktop
 SHELL [ "/bin/bash" , "-c" ]
 RUN apt update
 RUN apt upgrade -y
+
 RUN apt install -y git 
 RUN apt install -y python3-wheel 
 RUN apt install -y python3-pip
