@@ -1,8 +1,5 @@
 FROM osrf/ros:galactic-desktop
  
-
- 
-SHELL [ "/bin/bash" , "-c" ]
 RUN apt update
 RUN apt upgrade -y
 RUN apt install -y git 
@@ -22,6 +19,8 @@ RUN pip install opencv-contrib-python==4.6.0.66
 RUN pip install pygame
 RUN apt install -y psmisc
 RUN apt install -y ros-galactic-joint-state-publisher-gui ros-galactic-xacro
+
+SHELL [ "/bin/bash" , "-c" ]
 
 RUN echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
 # RUN echo "source /home/valentin/path_planning_ws/install/setup.bash" >> ~/.bashrc

@@ -29,7 +29,6 @@ RUN apt install -y ros-dev-tools
 RUN apt install -y gdb git
 RUN apt install -y build-essential
 
-SHELL [ "/bin/bash" , "-c" ]
 RUN apt install -y git 
 RUN apt install -y python3-wheel 
 RUN apt install -y python3-pip
@@ -46,6 +45,8 @@ RUN source /opt/ros/foxy/setup.bash \
 RUN pip install opencv-contrib-python==4.6.0.66
 RUN pip install pygame
 RUN apt install psmisc
+
+SHELL [ "/bin/bash" , "-c" ]
 
 RUN echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
 # RUN echo "source /home/valentin/path_planning_ws/install/setup.bash" >> ~/.bashrc
