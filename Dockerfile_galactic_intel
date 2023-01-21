@@ -1,5 +1,7 @@
 FROM osrf/ros:galactic-desktop
- 
+
+SHELL [ "/bin/bash" , "-c" ] 
+
 RUN apt update
 RUN apt upgrade -y
 RUN apt install -y git 
@@ -19,8 +21,11 @@ RUN pip install opencv-contrib-python==4.6.0.66
 RUN pip install pygame
 RUN apt install -y psmisc
 RUN apt install -y ros-galactic-joint-state-publisher-gui ros-galactic-xacro
-
-SHELL [ "/bin/bash" , "-c" ]
+RUN pip3 install rowan
+RUN pip3 install cflib transforms3d
+RUN apt install -y ros-galactic-tf-transformations
+RUN apt install -y swig
 
 RUN echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
-# RUN echo "source /home/valentin/path_planning_ws/install/setup.bash" >> ~/.bashrc
+RUN echo "export PYTHONPATH=/home/valentin/robotics/ros2_ws/crazyflie-firmware/:$PYTHONPATH" >> ~/.bashrc
+RUN echo "source /home/valentin/ros2_ws/install/setup.bash" >> ~/.bashrc

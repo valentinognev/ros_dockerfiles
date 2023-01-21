@@ -29,9 +29,9 @@
 //     "shutdownAction": "stopCompose"
 // }
 {
-    "name": "noetic",
+    "name": "kinetic",
     "dockerComposeFile": "./compose.yaml",
-    "service": "noetic_intel",
+    "service": "kinetic_intel",
     "workspaceFolder": "/home/valentin/catkin_ws",
     "extensions": [
         "ms-iot.vscode-ros"

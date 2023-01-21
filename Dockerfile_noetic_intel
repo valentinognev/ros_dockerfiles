@@ -1,5 +1,6 @@
 FROM osrf/ros:noetic-desktop-full
  
+SHELL [ "/bin/bash" , "-c" ] 
 
 RUN apt update
 RUN apt upgrade -y
@@ -11,5 +12,15 @@ RUN sed -i 's/m = r.search(vstr)/m = r.search(vstr.decode("'"utf-8"'"))/' /opt/r
 RUN apt install -y python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool python3-pip python3-catkin-tools
 RUN python -m pip install pyquaternion
 
+RUN apt install -y ros-noetic-joy ros-noetic-octomap-ros ros-noetic-mavlink
+RUN apt install -y ros-noetic-octomap-mapping ros-noetic-control-toolbox
+RUN apt install -y python3-vcstool protobuf-compiler libgoogle-glog-dev
+RUN apt install -y geographiclib-tools libgeographic-dev libgeographic19 
+RUN apt install -y ros-noetic-geographic-msgs ros-noetic-libmavconn ros-noetic-mavros-msgs ros-noetic-uuid-msgs wget
+RUN apt install -y swig
+RUN apt install -y zip qtcreator cmake build-essential genromfs ninja-build
+RUN apt install -y protobuf-compiler libgoogle-glog-dev libeigen3-dev libxml2-utils
+RUN apt install -y ros-noetic-rqt-multiplot
+
 RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
-RUN echo "source /home/valento/catkin_ws/devel/setup.bash" >> ~/.bashrc
+RUN echo "source /home/valentin/catkin_ws/devel/setup.bash" >> ~/.bashrc

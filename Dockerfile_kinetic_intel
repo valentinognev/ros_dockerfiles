@@ -2,10 +2,14 @@ FROM osrf/ros:kinetic-desktop-full
  
 RUN apt update
 RUN apt upgrade -y
- 
-# Install ROS Melodic
 
 RUN apt update && apt install -y gdb git
 RUN apt install -y ros-kinetic-joint-state-publisher-gui
+RUN apt install -y git zip qtcreator cmake build-essential genromfs ninja-build 
+RUN apt install -y protobuf-compiler libgoogle-glog-dev libeigen3-dev libxml2-utils
+RUN apt install -y ros-kinetic-mav-comm ros-kinetic-joy
+RUN apt install -y ros-kinetic-rqt-multiplot
+RUN apt install -y gcc-arm-none-eabi
+
 RUN echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 RUN echo "source /home/valento/catkin_ws/devel/setup.bash" >> ~/.bashrc
