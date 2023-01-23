@@ -23,10 +23,8 @@ RUN rosdep init \
  && rosdep update
 
 RUN apt update && apt install -y gdb git
-RUN apt update && apt install -y python-is-python3
 RUN apt install -y build-essential
 RUN apt install -y ros-melodic-rviz ros-melodic-rosbash ros-melodic-rqt-tf-tree ros-melodic-tf2-tools
 RUN sed -i 's/m = r.search(vstr)/m = r.search(vstr.decode("'"utf-8"'"))/' /opt/ros/melodic/lib/tf/view_frames
-RUN apt install -y python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool python3-pip
 
 RUN echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc

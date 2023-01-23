@@ -26,4 +26,12 @@ RUN apt install -y ros-noetic-rviz ros-noetic-rosbash ros-noetic-rqt-tf-tree ros
 RUN sed -i 's/m = r.search(vstr)/m = r.search(vstr.decode("'"utf-8"'"))/' /opt/ros/noetic/lib/tf/view_frames
 RUN apt install -y python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool python3-pip
 
+
+RUN echo "alias burger='export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
+RUN echo "alias waffle='export TURTLEBOT3_MODEL=waffle" >> ~/.bashrc
+
+RUN echo "export TURTLEBOT3_MODEL=waffle" >> ~/.bashrc
+
 RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+RUN echo "source /home/valentin/catkin_make/devel/setup.bash" >> ~/.bashrc
+

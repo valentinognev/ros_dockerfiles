@@ -24,8 +24,21 @@ RUN apt update
 RUN apt upgrade -y
 
 # Install ROS Galactic
-RUN apt install -y ros-galactic-desktop
-RUN apt install -y ros-dev-tools
-RUN echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
+RUN apt install -y --no-install-recommends ros-galactic-desktop
+RUN apt install -y --no-install-recommends ros-dev-tools
+
 RUN apt install -y gdb git
 RUN apt install -y build-essential
+
+# crazyswarm install
+RUN apt install -y libboost-program-options-dev libusb-1.0-0-dev
+RUN apt install -y python3-pip
+RUN pip3 install rowan
+RUN pip3 install cflib transforms3d
+RUN apt install -y ros-galactic-tf-transformations
+RUN apt install -y swig
+RUN apt install -y make gcc-arm-none-eabi
+RUN echo "export PYTHONPATH=/home/valentin/crazyflie-firmware-ros:$PYTHONPATH" >> ~/.bashrc
+
+RUN echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
+RUN echo "source /home/valentin/ros2_ws/install/setup.bash" >> ~/.bashrc

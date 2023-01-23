@@ -24,18 +24,17 @@ RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/r
 RUN apt update
 RUN apt upgrade -y
 
-RUN apt install -y ros-foxy-desktop
-RUN apt install -y ros-dev-tools
+RUN apt install -y --no-install-recommends ros-foxy-desktop
+RUN apt install -y --no-install-recommends ros-dev-tools
 RUN apt install -y gdb
 RUN apt install -y build-essential
 
-RUN apt-get update
-RUN apt-get install -y git && apt-get install -y python3-pip
-RUN source /opt/ros/foxy/setup.bash 
+RUN apt update
+RUN apt install -y git && apt install -y python3-pip
 
 RUN  apt install -y python3-colcon-common-extensions \
-    && apt-get install -y ros-foxy-joint-state-publisher-gui \
-    && apt-get install -y ros-foxy-gazebo-plugins
+    && apt install -y ros-foxy-joint-state-publisher-gui \
+    && apt install -y ros-foxy-gazebo-plugins
 
 RUN source /opt/ros/foxy/setup.bash \
  && apt install -y ros-foxy-joint-state-publisher \
