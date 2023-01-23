@@ -32,7 +32,7 @@
     "name": "kinetic",
     "dockerComposeFile": "./compose.yaml",
     "service": "kinetic_intel",
-    "workspaceFolder": "/home/valentin/catkin_ws",
+    "workspaceFolder": "/home/valentin",
     "extensions": [
         "ms-iot.vscode-ros"
     ],
