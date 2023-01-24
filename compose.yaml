@@ -165,37 +165,37 @@ services:
   #   command: /bin/sh -c "while sleep 1000; do :; done"   
 ##### run this command: docker-compose --file compose.yaml up galactic_intel
 ##############################################################################################################
-#   noetic_intel:
-#     image: ros_noetic_intel
-#     network_mode: "host" 
-#     privileged: true
-#     volumes:
-#       - /home/valentin/catkin_ws:/home/valentin/catkin_ws                     # homeDir:containerDir
-#       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-#       - /home/valentin/.Xauthority:/home/valentin/.Xauthority
-#     devices:
-#       - "/dev:/dev"
-#     environment:
-#       - CC=/usr/bin/cc
-#       - CXX=/usr/bin/c++
-#       - DISPLAY=:0
-#       - QT_X11_NO_MITSHM=1
-#       - XAUTHORITY=/home/valentin/.Xauthority
-#       - DOCKER_USER_NAME=valentin       # $(id -un)
-#       - DOCKER_USER_ID=1000             # $(id -u)
-#       - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
-#       - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
-#       - ROS_IP=127.0.0.1 
-#     build:
-#       context: .
-#       dockerfile: ./Dockerfile_noetic_intel
-#     # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
-#     cap_add:
-#       - SYS_PTRACE
-#     security_opt:
-#       - seccomp:unconfined   
-#     # Overrides default command so things don't shut down after the process ends.
-#     command: /bin/sh -c "while sleep 1000; do :; done"
+  noetic_intel:
+    image: ros_noetic_intel
+    network_mode: "host" 
+    privileged: true
+    volumes:
+      - /home/valentin/sim_cf:/home/valentin                     # homeDir:containerDir
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /home/valentin/.Xauthority:/home/valentin/.Xauthority
+    devices:
+      - "/dev:/dev"
+    environment:
+      - CC=/usr/bin/cc
+      - CXX=/usr/bin/c++
+      - DISPLAY=:0
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/home/valentin/.Xauthority
+      - DOCKER_USER_NAME=valentin       # $(id -un)
+      - DOCKER_USER_ID=1000             # $(id -u)
+      - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
+      - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
+      - ROS_IP=127.0.0.1 
+    build:
+      context: .
+      dockerfile: ./Dockerfile_noetic_intel2
+    # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined   
+    # Overrides default command so things don't shut down after the process ends.
+    command: /bin/sh -c "while sleep 1000; do :; done"
 # ##run this command: docker-compose --file compose.yaml up noetic_intel
 ##############################################################################################################
   # melodic_intel:
@@ -206,7 +206,8 @@ services:
   #     - /home/valentin/catkin_ws:/home/valentin/catkin_ws                     # homeDir:containerDir
   #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
   #     - /home/valentin/.Xauthority:/home/valentin/.Xauthority
-  #   devices:
+  #     - /etc/udev/rules.d:/etc/udev/rules.d:ro
+  #  devices:
   #     - "/dev:/dev"
   #   environment:
   #     - CC=/usr/bin/cc
@@ -231,37 +232,70 @@ services:
   #   command: /bin/sh -c "while sleep 1000; do :; done"
 # ###run this command: docker-compose --file compose.yaml up noetic_intel
 ##############################################################################################################
-  kinetic_intel:
-    image: ros_kinetic_intel
-    network_mode: "host" 
-    privileged: true
-    volumes:
-      - /home/valentin/sim_cf:/home/valentin                    # homeDir:containerDir
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - /home/valentin/.Xauthority:/home/valentin/.Xauthority
-    devices:
-      - "/dev:/dev"
-    environment:
-      - CC=/usr/bin/cc
-      - CXX=/usr/bin/c++
-      - DISPLAY=:0
-      - QT_X11_NO_MITSHM=1
-      - XAUTHORITY=/home/valentin/.Xauthority
-      - DOCKER_USER_NAME=valentin       # $(id -un)
-      - DOCKER_USER_ID=1000             # $(id -u)
-      - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
-      - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
-      - ROS_IP=127.0.0.1 
-    build:
-      context: .
-      dockerfile: ./Dockerfile_kinetic_intel
-    # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - seccomp:unconfined   
-    # Overrides default command so things don't shut down after the process ends.
-    command: /bin/sh -c "while sleep 1000; do :; done"
+  # kinetic_intel:
+  #   image: ros_kinetic_intel
+  #   network_mode: "host" 
+  #   privileged: true
+  #   volumes:
+  #     - /home/valentin/sim_cf:/home/valentin                    # homeDir:containerDir
+  #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
+  #     - /home/valentin/.Xauthority:/home/valentin/.Xauthority
+  #   devices:
+  #     - "/dev:/dev"
+  #   environment:
+  #     - CC=/usr/bin/cc
+  #     - CXX=/usr/bin/c++
+  #     - DISPLAY=:0
+  #     - QT_X11_NO_MITSHM=1
+  #     - XAUTHORITY=/home/valentin/.Xauthority
+  #     - DOCKER_USER_NAME=valentin       # $(id -un)
+  #     - DOCKER_USER_ID=1000             # $(id -u)
+  #     - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
+  #     - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
+  #     - ROS_IP=127.0.0.1 
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile_kinetic_intel
+  #   # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
+  #   cap_add:
+  #     - SYS_PTRACE
+  #   security_opt:
+  #     - seccomp:unconfined   
+  #   # Overrides default command so things don't shut down after the process ends.
+  #   command: /bin/sh -c "while sleep 1000; do :; done"
+###run this command: docker-compose --file compose.yaml up noetic_intel
+##############################################################################################################
+  # bitcrazetoolbelt2:
+  #   image: bitcrazetoolbelt2
+  #   network_mode: "host" 
+  #   privileged: true
+  #   volumes:
+  #     - /home/valentin/sim_cf:/home/valentin                    # homeDir:containerDir
+  #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
+  #     - /home/valentin/.Xauthority:/home/valentin/.Xauthority
+  #   devices:
+  #     - "/dev:/dev"
+  #   environment:
+  #     - CC=/usr/bin/cc
+  #     - CXX=/usr/bin/c++
+  #     - DISPLAY=:0
+  #     - QT_X11_NO_MITSHM=1
+  #     - XAUTHORITY=/home/valentin/.Xauthority
+  #     - DOCKER_USER_NAME=valentin       # $(id -un)
+  #     - DOCKER_USER_ID=1000             # $(id -u)
+  #     - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
+  #     - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
+  #     - ROS_IP=127.0.0.1 
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile_bitcraze2
+  #   # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
+  #   cap_add:
+  #     - SYS_PTRACE
+  #   security_opt:
+  #     - seccomp:unconfined   
+  #   # Overrides default command so things don't shut down after the process ends.
+  #   command: /bin/sh -c "while sleep 1000; do :; done"
 ###run this command: docker-compose --file compose.yaml up noetic_intel
 ##############################################################################################################
   # foxy_intel:

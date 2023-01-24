@@ -1,13 +1,13 @@
-// {
-//     "name": "noetic",
-//     "dockerComposeFile": "./compose.yaml",
-//     "service": "noetic_intel",
-//     "workspaceFolder": "/home/valentin/catkin_ws",
-//     "extensions": [
-//         "ms-iot.vscode-ros"
-//     ],
-//     "shutdownAction": "stopCompose"
-// }
+{
+    "name": "noetic",
+    "dockerComposeFile": "./compose.yaml",
+    "service": "noetic_intel",
+    "workspaceFolder": "/home/valentin",
+    "extensions": [
+        "ms-iot.vscode-ros"
+    ],
+    "shutdownAction": "stopCompose"
+}
 // {
 //     "name": "galactic",
 //     "dockerComposeFile": "./compose.yaml",
@@ -28,16 +28,26 @@
 //     ],
 //     "shutdownAction": "stopCompose"
 // }
-{
-    "name": "kinetic",
-    "dockerComposeFile": "./compose.yaml",
-    "service": "kinetic_intel",
-    "workspaceFolder": "/home/valentin",
-    "extensions": [
-        "ms-iot.vscode-ros"
-    ],
-    "shutdownAction": "stopCompose"
-}
+// {
+//     "name": "kinetic",
+//     "dockerComposeFile": "./compose.yaml",
+//     "service": "kinetic_intel",
+//     "workspaceFolder": "/home/valentin",
+//     "extensions": [
+//         "ms-iot.vscode-ros"
+//     ],
+//     "shutdownAction": "stopCompose"
+// }
+// {
+//     "name": "toolbelt",
+//     "dockerComposeFile": "./compose.yaml",
+//     "service": "bitcrazetoolbelt2",
+//     "workspaceFolder": "/home/valentin",
+//     "extensions": [
+//         "ms-iot.vscode-ros"
+//     ],
+//     "shutdownAction": "stopCompose"
+// }
 
 // MUST install: sudo apt install docker-compose
 // {
@@ -46,4 +56,14 @@
 //   "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
 //   "workspaceFolder": "/default/workspace/path/in/container/to/open",
 //   "shutdownAction": "stopCompose"
+// }
+// {
+//     "name": "melodic",
+//     "dockerComposeFile": "./compose.yaml",
+//     "service": "melodic_intel",
+//     "workspaceFolder": "/home/valentin/catkin_ws",
+//     "extensions": [
+//         "ms-iot.vscode-ros"
+//     ],
+//     "shutdownAction": "stopCompose"
 // }

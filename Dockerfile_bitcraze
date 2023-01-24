@@ -1,0 +1,5 @@
+FROM bitcraze/builder
+
+RUN apt update && apt install -y udev
+
+RUN apt install -y  usbutils 
