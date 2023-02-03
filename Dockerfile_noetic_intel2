@@ -38,6 +38,8 @@ RUN apt install -y libstdc++-arm-none-eabi-newlib cmake ninja-build
 
 RUN apt install -y ros-noetic-mavros ros-noetic-mavros-extras ros-noetic-joy ros-noetic-rqt-multiplot libgoogle-glog-dev
 
-RUN pip3 install cfclient 
+RUN pip3 install --verbose pyqt5==5.15
+RUN pip3 install --verbose cfclient 
+
 RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 RUN echo "source /home/valentin/catkin_ws/devel/setup.bash" >> ~/.bashrc
