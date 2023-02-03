@@ -23,8 +23,13 @@ cd build
 cmake ..
 make
 
+cd ../../sim_cf_firmware
+git clone git@github.com:rnd-hub/cf_app_layer.git --recursive
+cd cf_app_layer && git checkout 1d4e46ae259f8b4c185309d3e0f3463fdbc7fb22
 
 
+roslaunch crazyflie_gazebo crazyflie_sim.launch
+/home/valentin/catkin_ws/src/cf_sim/sim_cf_gazebo/scripts/run_cfs.sh 
 
 
 # 
@@ -35,10 +40,7 @@ make
 # cd crazyflie_tools
 # git checkout e7a8893ad63a04b63891e73244a3623131bbdc68
 # 
-# cd ../../sim_cf_firmware
-# git clone git@github.com:rnd-hub/cf_app_layer.git --recursive
-# cd cf_app_layer && git checkout 1d4e46ae259f8b4c185309d3e0f3463fdbc7fb22
-# 
+
 # 
 # 
 # 
