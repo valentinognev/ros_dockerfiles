@@ -165,14 +165,48 @@ services:
   #   command: /bin/sh -c "while sleep 1000; do :; done"   
 ##### run this command: docker-compose --file compose.yaml up galactic_intel
 ##############################################################################################################
-  noetic_intel:
-    image: ros_noetic_intel
+  # noetic_intel:
+  #   image: ros_noetic_intel
+  #   network_mode: "host" 
+  #   privileged: true
+  #   volumes:
+  #     - /home/valento/sim_cf/noetic:/home/valentin                     # homeDir:containerDir
+  #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
+  #     - /home/valento/.Xauthority:/home/valentin/.Xauthority
+  #   devices:
+  #     - "/dev:/dev"
+  #   environment:
+  #     - CC=/usr/bin/cc
+  #     - CXX=/usr/bin/c++
+  #     - DISPLAY=:0
+  #     - QT_X11_NO_MITSHM=1
+  #     - XAUTHORITY=/home/valento/.Xauthority
+  #     - DOCKER_USER_NAME=valento       # $(id -un)
+  #     - DOCKER_USER_ID=1000             # $(id -u)
+  #     - DOCKER_USER_GROUP_NAME=valento # $(id -gn)
+  #     - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
+  #     - ROS_IP=127.0.0.1 
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile_noetic_intel2
+  #   # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
+  #   cap_add:
+  #     - SYS_PTRACE
+  #   security_opt:
+  #     - seccomp:unconfined   
+  #   # Overrides default command so things don't shut down after the process ends.
+  #   command: /bin/sh -c "while sleep 1000; do :; done"
+# ##run this command: docker-compose --file compose.yaml up noetic_intel
+##############################################################################################################
+  melodic_intel:
+    image: ros_melodic_intel
     network_mode: "host" 
     privileged: true
     volumes:
-      - /home/valento/sim_cf/noetic:/home/valentin                     # homeDir:containerDir
+      - /home/valento/sim_cf/melodic:/home/valentin                     # homeDir:containerDir
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /home/valento/.Xauthority:/home/valentin/.Xauthority
+      - /etc/udev/rules.d:/etc/udev/rules.d:ro
     devices:
       - "/dev:/dev"
     environment:
@@ -188,7 +222,7 @@ services:
       - ROS_IP=127.0.0.1 
     build:
       context: .
-      dockerfile: ./Dockerfile_noetic_intel2
+      dockerfile: ./Dockerfile_melodic_intel
     # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
     cap_add:
       - SYS_PTRACE
@@ -196,40 +230,6 @@ services:
       - seccomp:unconfined   
     # Overrides default command so things don't shut down after the process ends.
     command: /bin/sh -c "while sleep 1000; do :; done"
-# ##run this command: docker-compose --file compose.yaml up noetic_intel
-##############################################################################################################
-  # melodic_intel:
-  #   image: ros_melodic_intel
-  #   network_mode: "host" 
-  #   privileged: true
-  #   volumes:
-  #     - /home/valentin/catkin_ws:/home/valentin/catkin_ws                     # homeDir:containerDir
-  #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
-  #     - /home/valentin/.Xauthority:/home/valentin/.Xauthority
-  #     - /etc/udev/rules.d:/etc/udev/rules.d:ro
-  #  devices:
-  #     - "/dev:/dev"
-  #   environment:
-  #     - CC=/usr/bin/cc
-  #     - CXX=/usr/bin/c++
-  #     - DISPLAY=:0
-  #     - QT_X11_NO_MITSHM=1
-  #     - XAUTHORITY=/home/valentin/.Xauthority
-  #     - DOCKER_USER_NAME=valentin       # $(id -un)
-  #     - DOCKER_USER_ID=1000             # $(id -u)
-  #     - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
-  #     - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
-  #     - ROS_IP=127.0.0.1 
-  #   build:
-  #     context: .
-  #     dockerfile: ./Dockerfile_melodic_intel
-  #   # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
-  #   cap_add:
-  #     - SYS_PTRACE
-  #   security_opt:
-  #     - seccomp:unconfined   
-  #   # Overrides default command so things don't shut down after the process ends.
-  #   command: /bin/sh -c "while sleep 1000; do :; done"
 # ###run this command: docker-compose --file compose.yaml up noetic_intel
 ##############################################################################################################
   # kinetic_intel:
@@ -237,9 +237,9 @@ services:
   #   network_mode: "host" 
   #   privileged: true
   #   volumes:
-  #     - /home/valentin/sim_cf:/home/valentin                    # homeDir:containerDir
+  #     - /home/valento/sim_cf/kinetic:/home/valentin                    # homeDir:containerDir
   #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
-  #     - /home/valentin/.Xauthority:/home/valentin/.Xauthority
+  #     - /home/valento/.Xauthority:/home/valentin/.Xauthority
   #   devices:
   #     - "/dev:/dev"
   #   environment:
@@ -247,10 +247,10 @@ services:
   #     - CXX=/usr/bin/c++
   #     - DISPLAY=:0
   #     - QT_X11_NO_MITSHM=1
-  #     - XAUTHORITY=/home/valentin/.Xauthority
-  #     - DOCKER_USER_NAME=valentin       # $(id -un)
+  #     - XAUTHORITY=/home/valento/.Xauthority
+  #     - DOCKER_USER_NAME=valento       # $(id -un)
   #     - DOCKER_USER_ID=1000             # $(id -u)
-  #     - DOCKER_USER_GROUP_NAME=valentin # $(id -gn)
+  #     - DOCKER_USER_GROUP_NAME=valento # $(id -gn)
   #     - DOCKER_USER_GROUP_ID=1000       # $(id -g) 
   #     - ROS_IP=127.0.0.1 
   #   build:

@@ -31,7 +31,8 @@ cd cf_app_layer && git checkout 1d4e46ae259f8b4c185309d3e0f3463fdbc7fb22
 roslaunch crazyflie_gazebo crazyflie_sim.launch
 /home/valentin/catkin_ws/src/cf_sim/sim_cf_gazebo/scripts/run_cfs.sh 
 
-
+roslaunch crazyflie_gazebo crazyflie_sim.launch uri:=radio://0/120/2M/E7E7E7E742
+roslaunch crazyflie_gazebo crazyflie_sim.launch uri:=radio://10/80/2M/E7E7E7E741
 # 
 # 
 # 

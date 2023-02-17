@@ -1,13 +1,14 @@
-{
-    "name": "noetic",
-    "dockerComposeFile": "./compose.yaml",
-    "service": "noetic_intel",
-    "workspaceFolder": "/home/valentin",
-    "extensions": [
-        "ms-iot.vscode-ros"
-    ],
-    "shutdownAction": "stopCompose"
-}
+// {
+//     "name": "noetic",
+//     "dockerComposeFile": "./compose.yaml",
+//     "service": "noetic_intel",
+//     "workspaceFolder": "/home/valentin",
+//     "extensions": [
+//         "ms-iot.vscode-ros","twxs.cmake","ms-vscode.cmake-tools","ms-vscode.cpptools","ms-azuretools.vscode-docker",
+//         "mhutchie.git-graph","ms-python.python","ms-python.vscode-pylance"
+//     ],
+//     "shutdownAction": "stopCompose"
+// }
 // {
 //     "name": "galactic",
 //     "dockerComposeFile": "./compose.yaml",
@@ -28,7 +29,7 @@
 //     ],
 //     "shutdownAction": "stopCompose"
 // }
-// {
+// {  // for kinetic use VS-Code python extension not later than 2021.9.1246542782
 //     "name": "kinetic",
 //     "dockerComposeFile": "./compose.yaml",
 //     "service": "kinetic_intel",
@@ -44,7 +45,8 @@
 //     "service": "bitcrazetoolbelt2",
 //     "workspaceFolder": "/home/valentin",
 //     "extensions": [
-//         "ms-iot.vscode-ros"
+//        "ms-iot.vscode-ros","ms-vscode.cpptools","ms-python.python","ms-python.vscode-pylance","mhutchie.git-graph",
+//        "ms-vscode.cpptools-extension-pack","twxs.cmake","ms-vscode.cmake-tools","GitHub.copilot-labs","GitHub.copilot-nightly"
 //     ],
 //     "shutdownAction": "stopCompose"
 // }
@@ -57,13 +59,15 @@
 //   "workspaceFolder": "/default/workspace/path/in/container/to/open",
 //   "shutdownAction": "stopCompose"
 // }
-// {
-//     "name": "melodic",
-//     "dockerComposeFile": "./compose.yaml",
-//     "service": "melodic_intel",
-//     "workspaceFolder": "/home/valentin/catkin_ws",
-//     "extensions": [
-//         "ms-iot.vscode-ros"
-//     ],
-//     "shutdownAction": "stopCompose"
-// }
+{ // for melodic use VS-Code python extension not later than 2021.9.1246542782
+  // remove all --inorder from launch files
+    "name": "melodic",
+    "dockerComposeFile": "./compose.yaml",
+    "service": "melodic_intel",
+    "workspaceFolder": "/home/valentin/catkin_ws",
+    "extensions": [
+        "ms-iot.vscode-ros","ms-vscode.cpptools","ms-python.python","ms-python.vscode-pylance","mhutchie.git-graph",
+        "ms-vscode.cpptools-extension-pack","twxs.cmake","ms-vscode.cmake-tools","GitHub.copilot-labs","GitHub.copilot-nightly"
+    ],
+    "shutdownAction": "stopCompose"
+}
