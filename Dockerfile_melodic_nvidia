@@ -11,9 +11,13 @@ RUN dpkg-reconfigure locales
  
 SHELL [ "/bin/bash" , "-c" ]
 
+
+RUN apt-get install -y apt-utils ca-certificates wget curl \
+&& rm -rf /var/lib/apt/lists/*
+
+
 # Install ROS Melodic
 RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-RUN apt install -y curl # if you haven't already installed curl
 RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
 RUN apt update 
 RUN apt install -y ros-melodic-desktop-full
@@ -26,5 +30,26 @@ RUN apt update && apt install -y gdb git
 RUN apt install -y build-essential
 RUN apt install -y ros-melodic-rviz ros-melodic-rosbash ros-melodic-rqt-tf-tree ros-melodic-tf2-tools
 RUN sed -i 's/m = r.search(vstr)/m = r.search(vstr.decode("'"utf-8"'"))/' /opt/ros/melodic/lib/tf/view_frames
+
+# install gazebo packages
+RUN apt-get update -y && apt-get install -y --allow-unauthenticated --no-install-recommends \
+libgazebo9-dev \
+&& rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y --allow-unauthenticated --no-install-recommends \
+ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control \
+ros-melodic-gazebo-plugins ros-melodic-gazebo-ros ros-melodic-gazebo-ros \
+ros-melodic-simulators \
+&& rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y --allow-unauthenticated --no-install-recommends \
+autoconf automake libtool make g++ unzip \
+ros-melodic-mavros ros-melodic-mavros-extras \
+ros-melodic-mav-msgs \
+&& rm -rf /var/lib/apt/lists/*
+
+RUN wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh \
+&& bash ./install_geographiclib_datasets.sh
+
 
 RUN echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
